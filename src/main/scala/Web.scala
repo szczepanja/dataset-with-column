@@ -8,4 +8,6 @@ object Web extends App {
     .master("local[*]")
     .getOrCreate()
 
+  val df = spark.read.csv("data.csv")
+  df.show()
 }
