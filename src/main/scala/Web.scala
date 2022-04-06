@@ -13,7 +13,9 @@ object Web extends App {
     .read
     .option("header", value = true)
     .option("inferSchema", value = true)
-    .csv("data.csv")
+    .csv(path)
+
+  val path = if (args.length > 0) args.head else "data.csv"
 
   import org.apache.spark.sql.functions.upper
 
