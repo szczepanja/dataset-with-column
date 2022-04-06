@@ -1,6 +1,7 @@
-import org.apache.spark.sql.functions.lit
+import org.apache.spark.sql.functions
+import org.apache.spark.sql.functions.column
 
-object Web extends App {
+object Wed extends App {
 
   import org.apache.spark.sql.SparkSession
 
@@ -11,5 +12,5 @@ object Web extends App {
     .getOrCreate()
 
   val df = spark.read.csv("data.csv")
-  df.withColumn("C5", lit("six")).withColumn("C6", lit("seven")).show()
+  df.withColumn("_c0", functions.upper(column("_c0"))).show()
 }
